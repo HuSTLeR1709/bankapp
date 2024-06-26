@@ -15,7 +15,7 @@ export const deposite = async (type, amount, accountNumber)=>{
       if (!response?.data?.success) {
         throw new Error("Could Not Add Blog Details");
       }
-      toast.success("DEPOSITE Successfully");
+      toast.success("DEPOSITE Successfull");
       result = response?.data?.data;
     } catch (error) {
       console.log("DEPOSITE API ERROR............", error);
@@ -34,14 +34,14 @@ export const withdraw = async (type, amount, accountNumber)=>{
         amount,
         accountNumber,
       });
-      console.log("DEPOSITE API RESPONSE............", response);
+      console.log("WITHDRAW API RESPONSE............", response);
       if (!response?.data?.success) {
         throw new Error("Could Not Add Blog Details");
       }
-      toast.success("DEPOSITE Successfully");
+      toast.success("WITHDRAW Successfull");
       result = response?.data?.data;
     } catch (error) {
-      console.log("DEPOSITE API ERROR............", error);
+      console.log("WITHDRAW API ERROR............", error);
       toast.error(error.response.data.message);
     }
     toast.dismiss(toastId);
@@ -58,6 +58,7 @@ export const fetchAllTransaction = async () => {
         null,
       )
       console.log("ALL Transaction API RESPONSE............", response)
+        toast.success("All Transactions Fetched")
       if (!response?.data?.success) {
         throw new Error("Could Not Fetch Transaction")
       }
